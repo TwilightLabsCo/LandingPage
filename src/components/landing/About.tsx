@@ -1,49 +1,71 @@
+import { Target, Lightbulb, Shield } from "lucide-react";
+
 const About = () => {
-  const stats = [
-    { value: "2019", label: "Founded" },
-    { value: "50+", label: "Projects Delivered" },
-    { value: "$10M+", label: "Assets Under Management" },
+  const values = [
+    {
+      icon: Target,
+      title: "Precision",
+      description: "Every decision is data-driven and meticulously planned."
+    },
+    {
+      icon: Lightbulb,
+      title: "Innovation",
+      description: "We push boundaries to create what doesn't yet exist."
+    },
+    {
+      icon: Shield,
+      title: "Trust",
+      description: "Security and transparency are at our core."
+    }
   ];
 
   return (
-    <section id="about" className="py-32 bg-background border-t border-border/40">
-      <div className="container mx-auto px-6 lg:px-12">
+    <section id="about" className="py-24 md:py-32 bg-background">
+      <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          {/* Header */}
-          <div className="grid lg:grid-cols-2 gap-16 mb-20">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            {/* Left - Text Content */}
             <div>
-              <span className="text-xs font-medium text-muted-foreground tracking-widest uppercase mb-4 block">
-                About Twilight Labs
-              </span>
-              <h2 className="text-3xl md:text-4xl font-display font-medium text-foreground leading-tight tracking-tight-custom">
-                A disciplined approach to digital asset management
+              <p className="text-primary font-medium text-sm tracking-wide uppercase mb-4">
+                About Us
+              </p>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground leading-tight mb-6">
+                Building the future of digital finance
               </h2>
-            </div>
-            <div className="lg:pt-10">
-              <p className="text-muted-foreground text-lg leading-relaxed font-light mb-6">
-                We combine rigorous technical expertise with strategic investment methodology. 
-                Our team of engineers and analysts work in concert to identify opportunities 
-                and execute with precision.
+              <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+                At Twilight Labs, we combine deep technical expertise with strategic investment acumen. 
+                Our team of engineers, analysts, and visionaries work together to identify opportunities 
+                and build solutions that shape the digital economy.
               </p>
-              <p className="text-muted-foreground leading-relaxed font-light">
-                Founded with a commitment to excellence, Twilight Labs has grown into a 
-                trusted partner for institutions and individuals navigating the digital asset landscape.
+              <p className="text-muted-foreground text-lg leading-relaxed">
+                Founded with a mission to democratize access to digital assets, we've grown into a 
+                multifaceted operation spanning investment, development, and asset creation.
               </p>
             </div>
-          </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 pt-12 border-t border-border/40">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center md:text-left">
-                <p className="text-3xl md:text-4xl font-display font-medium text-foreground mb-2">
-                  {stat.value}
-                </p>
-                <p className="text-sm text-muted-foreground tracking-wide">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
+            {/* Right - Values */}
+            <div className="space-y-6">
+              {values.map((value, index) => (
+                <div 
+                  key={index}
+                  className="group p-6 rounded-2xl bg-secondary/50 border border-border/50 hover:border-primary/20 hover:bg-secondary transition-all duration-300"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+                      <value.icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-foreground text-lg mb-1">
+                        {value.title}
+                      </h3>
+                      <p className="text-muted-foreground">
+                        {value.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

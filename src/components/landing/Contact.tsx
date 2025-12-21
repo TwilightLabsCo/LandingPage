@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { ArrowRight } from "lucide-react";
+import { Send, Mail, MapPin } from "lucide-react";
 import { z } from "zod";
 
 const contactSchema = z.object({
@@ -48,11 +48,13 @@ const Contact = () => {
     }
 
     setIsSubmitting(true);
+    
+    // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1000));
     
     toast({
-      title: "Message received",
-      description: "Thank you for your inquiry. We'll respond within 24 hours.",
+      title: "Message sent!",
+      description: "Thank you for reaching out. We'll get back to you soon.",
     });
     
     setFormData({ name: "", email: "", message: "" });
@@ -60,40 +62,50 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-32 bg-background border-t border-border/40">
-      <div className="container mx-auto px-6 lg:px-12">
+    <section id="contact" className="py-24 md:py-32 bg-background">
+      <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-20">
+          <div className="grid lg:grid-cols-2 gap-16">
             {/* Left - Info */}
             <div>
-              <span className="text-xs font-medium text-muted-foreground tracking-widest uppercase mb-4 block">
-                Contact
-              </span>
-              <h2 className="text-3xl md:text-4xl font-display font-medium text-foreground leading-tight tracking-tight-custom mb-6">
-                Let's discuss your objectives
+              <p className="text-primary font-medium text-sm tracking-wide uppercase mb-4">
+                Get in Touch
+              </p>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground leading-tight mb-6">
+                Let's build something extraordinary
               </h2>
-              <p className="text-muted-foreground text-lg font-light leading-relaxed mb-12">
-                Whether you're exploring investment opportunities, require custom development, 
-                or are ready to create new digital assets, we're here to help.
+              <p className="text-muted-foreground text-lg leading-relaxed mb-10">
+                Whether you're looking to invest, need custom development, or want to explore 
+                creating digital assets, we'd love to hear from you.
               </p>
 
-              <div className="space-y-8">
-                <div>
-                  <p className="text-xs text-muted-foreground tracking-widest uppercase mb-2">Email</p>
-                  <p className="text-foreground font-medium">Business@TwilightLabs.Top</p>
+              <div className="space-y-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center">
+                    <Mail className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">Email</p>
+                    <p className="text-foreground font-medium">Business@TwilightLabs.Top</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-xs text-muted-foreground tracking-widest uppercase mb-2">Location</p>
-                  <p className="text-foreground font-medium">Atlanta, GA</p>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center">
+                    <MapPin className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">Location</p>
+                    <p className="text-foreground font-medium">Atlanta, GA</p>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Right - Form */}
-            <div>
+            <div className="bg-secondary/30 rounded-2xl p-8 border border-border/50">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-xs font-medium text-muted-foreground tracking-widest uppercase mb-3">
+                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                     Name
                   </label>
                   <Input
@@ -103,13 +115,13 @@ const Contact = () => {
                     placeholder="Your name"
                     value={formData.name}
                     onChange={handleChange}
-                    className={`bg-transparent border-border/60 focus:border-primary rounded-md h-12 placeholder:text-muted-foreground/50 ${errors.name ? 'border-destructive' : ''}`}
+                    className={`bg-background border-border/50 focus:border-primary rounded-xl h-12 ${errors.name ? 'border-destructive' : ''}`}
                   />
-                  {errors.name && <p className="text-destructive text-sm mt-2">{errors.name}</p>}
+                  {errors.name && <p className="text-destructive text-sm mt-1">{errors.name}</p>}
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-xs font-medium text-muted-foreground tracking-widest uppercase mb-3">
+                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
                     Email
                   </label>
                   <Input
@@ -119,30 +131,30 @@ const Contact = () => {
                     placeholder="your@email.com"
                     value={formData.email}
                     onChange={handleChange}
-                    className={`bg-transparent border-border/60 focus:border-primary rounded-md h-12 placeholder:text-muted-foreground/50 ${errors.email ? 'border-destructive' : ''}`}
+                    className={`bg-background border-border/50 focus:border-primary rounded-xl h-12 ${errors.email ? 'border-destructive' : ''}`}
                   />
-                  {errors.email && <p className="text-destructive text-sm mt-2">{errors.email}</p>}
+                  {errors.email && <p className="text-destructive text-sm mt-1">{errors.email}</p>}
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-xs font-medium text-muted-foreground tracking-widest uppercase mb-3">
+                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
                     Message
                   </label>
                   <Textarea
                     id="message"
                     name="message"
-                    placeholder="Tell us about your project or inquiry..."
+                    placeholder="Tell us about your project..."
                     rows={5}
                     value={formData.message}
                     onChange={handleChange}
-                    className={`bg-transparent border-border/60 focus:border-primary rounded-md resize-none placeholder:text-muted-foreground/50 ${errors.message ? 'border-destructive' : ''}`}
+                    className={`bg-background border-border/50 focus:border-primary rounded-xl resize-none ${errors.message ? 'border-destructive' : ''}`}
                   />
-                  {errors.message && <p className="text-destructive text-sm mt-2">{errors.message}</p>}
+                  {errors.message && <p className="text-destructive text-sm mt-1">{errors.message}</p>}
                 </div>
 
                 <Button 
                   type="submit" 
-                  className="w-full rounded-md h-12 gap-2 font-medium tracking-tight group"
+                  className="w-full rounded-xl h-12 gap-2"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
@@ -150,7 +162,7 @@ const Contact = () => {
                   ) : (
                     <>
                       Send Message
-                      <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                      <Send className="w-4 h-4" />
                     </>
                   )}
                 </Button>
