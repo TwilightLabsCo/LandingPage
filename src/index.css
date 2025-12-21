@@ -2,50 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap');
 
-/* Twilight Labs Design System - Light Blue & White Apple/Stripe Inspired */
+/* Twilight Labs Design System - Premium Professional */
 
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 215 25% 15%;
+    --foreground: 220 30% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 15%;
+    --card-foreground: 220 30% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 15%;
+    --popover-foreground: 220 30% 12%;
 
-    /* Primary - Deep blue for text and key elements */
-    --primary: 210 100% 45%;
+    /* Primary - Refined deep navy blue */
+    --primary: 215 50% 23%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Light blue for backgrounds */
-    --secondary: 204 100% 97%;
-    --secondary-foreground: 215 25% 15%;
+    /* Secondary - Subtle cool gray */
+    --secondary: 210 20% 97%;
+    --secondary-foreground: 220 30% 12%;
 
-    /* Muted - Soft gray-blue */
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    /* Muted - Sophisticated gray */
+    --muted: 210 15% 95%;
+    --muted-foreground: 220 10% 45%;
 
-    /* Accent - Sky blue */
-    --accent: 199 89% 92%;
-    --accent-foreground: 215 25% 15%;
+    /* Accent - Soft slate blue */
+    --accent: 210 25% 93%;
+    --accent-foreground: 220 30% 12%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 65% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 30% 90%;
-    --input: 210 30% 90%;
-    --ring: 210 100% 45%;
+    --border: 220 15% 90%;
+    --input: 220 15% 90%;
+    --ring: 215 50% 23%;
 
-    --radius: 0.75rem;
-
-    /* Custom tokens */
-    --gradient-hero: linear-gradient(180deg, hsl(204 100% 97%) 0%, hsl(0 0% 100%) 100%);
-    --shadow-soft: 0 4px 24px -4px hsl(210 100% 45% / 0.08);
-    --shadow-card: 0 1px 3px hsl(210 100% 45% / 0.04), 0 8px 24px hsl(210 100% 45% / 0.06);
+    --radius: 0.5rem;
   }
 
   .dark {
@@ -58,16 +53,16 @@
     --popover: 222 47% 8%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 100% 60%;
+    --primary: 210 60% 70%;
     --primary-foreground: 222 47% 6%;
 
-    --secondary: 217 33% 17%;
+    --secondary: 217 33% 14%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 217 33% 17%;
+    --muted: 217 33% 14%;
     --muted-foreground: 215 20% 65%;
 
-    --accent: 217 33% 17%;
+    --accent: 217 33% 14%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 63% 31%;
@@ -75,7 +70,7 @@
 
     --border: 217 33% 17%;
     --input: 217 33% 17%;
-    --ring: 210 100% 60%;
+    --ring: 210 60% 70%;
   }
 }
 
@@ -91,33 +86,44 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
 @layer utilities {
+  .font-display {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
   .text-balance {
     text-wrap: balance;
+  }
+
+  .tracking-tight-custom {
+    letter-spacing: -0.02em;
   }
 }
 
 /* Custom animations */
 @layer components {
   .animate-fade-up {
-    animation: fadeUp 0.6s ease-out forwards;
+    animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 
   .animate-fade-up-delay-1 {
-    animation: fadeUp 0.6s ease-out 0.1s forwards;
+    animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
     opacity: 0;
   }
 
   .animate-fade-up-delay-2 {
-    animation: fadeUp 0.6s ease-out 0.2s forwards;
+    animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
     opacity: 0;
   }
 
   .animate-fade-up-delay-3 {
-    animation: fadeUp 0.6s ease-out 0.3s forwards;
+    animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.45s forwards;
     opacity: 0;
   }
 }
@@ -125,7 +131,7 @@
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(24px);
   }
   to {
     opacity: 1;
