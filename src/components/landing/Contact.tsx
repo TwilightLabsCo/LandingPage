@@ -86,7 +86,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Email</p>
-                    <p className="text-foreground font-medium">hello@twilightlabs.io</p>
+                    <p className="text-foreground font-medium">Business@TwilightLabs.Top</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -95,7 +95,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Location</p>
-                    <p className="text-foreground font-medium">San Francisco, CA</p>
+                    <p className="text-foreground font-medium">Atlanta, GA</p>
                   </div>
                 </div>
               </div>
