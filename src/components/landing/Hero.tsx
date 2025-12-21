@@ -8,46 +8,51 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-secondary to-background pt-16">
-      <div className="container mx-auto px-6 py-24 text-center">
-        <div className="max-w-4xl mx-auto">
-          <p className="animate-fade-up text-primary font-medium text-sm tracking-wide uppercase mb-6">
-            Digital Asset Innovation
-          </p>
+    <section className="relative min-h-screen flex items-center justify-center bg-background pt-20">
+      {/* Subtle grid background */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border)/0.3)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/0.3)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+      
+      <div className="container relative mx-auto px-6 lg:px-12 py-32">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="animate-fade-up inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-secondary/50 mb-8">
+            <div className="w-2 h-2 rounded-full bg-primary/60" />
+            <span className="text-xs font-medium text-muted-foreground tracking-wide uppercase">
+              Digital Asset Innovation
+            </span>
+          </div>
           
-          <h1 className="animate-fade-up-delay-1 text-4xl md:text-6xl lg:text-7xl font-semibold text-foreground leading-tight tracking-tight mb-6">
-            We invest in, code, and create{" "}
-            <span className="text-primary">digital assets</span>
+          <h1 className="animate-fade-up-delay-1 text-4xl md:text-5xl lg:text-6xl font-display font-medium text-foreground leading-[1.1] tracking-tight-custom mb-8">
+            We invest in, code, and create digital assets
           </h1>
           
-          <p className="animate-fade-up-delay-2 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-            Twilight Labs is a forward-thinking company at the intersection of technology and finance, 
-            building the digital infrastructure of tomorrow.
+          <p className="animate-fade-up-delay-2 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed font-light">
+            Twilight Labs operates at the intersection of technology and finance, 
+            building sophisticated digital infrastructure for the modern economy.
           </p>
           
           <div className="animate-fade-up-delay-3 flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               onClick={scrollToContact}
               size="lg" 
-              className="rounded-full px-8 gap-2 group"
+              className="rounded-md px-8 gap-2 group font-medium tracking-tight h-12"
             >
               Start a Conversation
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Button>
             <Button 
               onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
               variant="outline" 
               size="lg" 
-              className="rounded-full px-8"
+              className="rounded-md px-8 font-medium tracking-tight h-12 border-border/60 hover:bg-secondary"
             >
-              Explore Services
+              Our Services
             </Button>
           </div>
         </div>
       </div>
-      
-      {/* Subtle gradient orb */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
     </section>
   );
 };
