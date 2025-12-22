@@ -49,7 +49,6 @@ const Contact = () => {
 
     setIsSubmitting(true);
     
-    // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1000));
     
     toast({
@@ -62,48 +61,48 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-background">
-      <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16">
+    <section id="contact" className="py-20 md:py-28 bg-background">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-10 md:gap-16">
             {/* Left - Info */}
             <div>
-              <p className="text-primary font-medium text-sm tracking-wide uppercase mb-4">
+              <p className="text-primary font-medium text-sm tracking-widest uppercase mb-4">
                 Get in Touch
               </p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground leading-tight mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-foreground leading-tight mb-6">
                 Let's build something extraordinary
               </h2>
-              <p className="text-muted-foreground text-lg leading-relaxed mb-10">
+              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-8">
                 Whether you're looking to invest, need custom development, or want to explore 
                 creating digital assets, we'd love to hear from you.
               </p>
 
-              <div className="space-y-6">
+              <div className="space-y-5">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center">
+                  <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0">
                     <Mail className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <p className="text-sm text-muted-foreground">Email</p>
-                    <p className="text-foreground font-medium">Business@TwilightLabs.Top</p>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wide">Email</p>
+                    <p className="text-foreground font-medium text-sm">Business@TwilightLabs.Top</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center">
+                  <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <p className="text-sm text-muted-foreground">Location</p>
-                    <p className="text-foreground font-medium">Atlanta, GA</p>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wide">Location</p>
+                    <p className="text-foreground font-medium text-sm">Atlanta, GA</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Right - Form */}
-            <div className="bg-secondary/30 rounded-2xl p-8 border border-border/50">
-              <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="bg-secondary/30 rounded-xl p-6 sm:p-8 border border-border/50">
+              <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                     Name
@@ -115,9 +114,9 @@ const Contact = () => {
                     placeholder="Your name"
                     value={formData.name}
                     onChange={handleChange}
-                    className={`bg-background border-border/50 focus:border-primary rounded-xl h-12 ${errors.name ? 'border-destructive' : ''}`}
+                    className={`bg-background border-border/50 focus:border-primary rounded-lg h-11 ${errors.name ? 'border-destructive' : ''}`}
                   />
-                  {errors.name && <p className="text-destructive text-sm mt-1">{errors.name}</p>}
+                  {errors.name && <p className="text-destructive text-xs mt-1">{errors.name}</p>}
                 </div>
 
                 <div>
@@ -131,9 +130,9 @@ const Contact = () => {
                     placeholder="your@email.com"
                     value={formData.email}
                     onChange={handleChange}
-                    className={`bg-background border-border/50 focus:border-primary rounded-xl h-12 ${errors.email ? 'border-destructive' : ''}`}
+                    className={`bg-background border-border/50 focus:border-primary rounded-lg h-11 ${errors.email ? 'border-destructive' : ''}`}
                   />
-                  {errors.email && <p className="text-destructive text-sm mt-1">{errors.email}</p>}
+                  {errors.email && <p className="text-destructive text-xs mt-1">{errors.email}</p>}
                 </div>
 
                 <div>
@@ -144,17 +143,17 @@ const Contact = () => {
                     id="message"
                     name="message"
                     placeholder="Tell us about your project..."
-                    rows={5}
+                    rows={4}
                     value={formData.message}
                     onChange={handleChange}
-                    className={`bg-background border-border/50 focus:border-primary rounded-xl resize-none ${errors.message ? 'border-destructive' : ''}`}
+                    className={`bg-background border-border/50 focus:border-primary rounded-lg resize-none ${errors.message ? 'border-destructive' : ''}`}
                   />
-                  {errors.message && <p className="text-destructive text-sm mt-1">{errors.message}</p>}
+                  {errors.message && <p className="text-destructive text-xs mt-1">{errors.message}</p>}
                 </div>
 
                 <Button 
                   type="submit" 
-                  className="w-full rounded-xl h-12 gap-2"
+                  className="w-full rounded-lg h-11 gap-2"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (

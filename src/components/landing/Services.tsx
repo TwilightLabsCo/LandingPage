@@ -1,11 +1,11 @@
-import { TrendingUp, Code2, Sparkles, ArrowUpRight } from "lucide-react";
+import { TrendingUp, Code2, Sparkles } from "lucide-react";
 
 const Services = () => {
   const services = [
     {
       icon: TrendingUp,
       title: "Invest",
-      subtitle: "Strategic Capital Deployment",
+      subtitle: "Strategic Capital",
       description: "We identify and invest in promising digital assets, blockchain projects, and emerging technologies with high growth potential.",
       features: ["Portfolio Management", "Due Diligence", "Risk Assessment"]
     },
@@ -19,66 +19,61 @@ const Services = () => {
     {
       icon: Sparkles,
       title: "Create",
-      subtitle: "Digital Asset Creation",
+      subtitle: "Digital Assets",
       description: "We conceptualize and launch new digital assets, from tokenization projects to NFT collections and beyond.",
       features: ["Token Design", "NFT Projects", "Asset Tokenization"]
     }
   ];
 
   return (
-    <section id="services" className="py-24 md:py-32 bg-secondary/30">
-      <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
+    <section id="services" className="py-20 md:py-28 bg-secondary/30">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="max-w-5xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
-            <p className="text-primary font-medium text-sm tracking-wide uppercase mb-4">
+          <div className="text-center mb-12 md:mb-16">
+            <p className="text-primary font-medium text-sm tracking-widest uppercase mb-4">
               What We Do
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground leading-tight mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-foreground leading-tight mb-4">
               Three pillars of excellence
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-base sm:text-lg max-w-xl mx-auto">
               Our integrated approach allows us to capture value across the entire digital asset lifecycle.
             </p>
           </div>
 
           {/* Services Grid */}
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
             {services.map((service, index) => (
               <div
                 key={index}
-                className="group relative p-8 rounded-2xl bg-card border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all duration-300"
+                className="group relative p-6 rounded-xl bg-card border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all duration-300"
               >
                 {/* Icon */}
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                  <service.icon className="w-7 h-7 text-primary" />
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
+                  <service.icon className="w-6 h-6 text-primary" />
                 </div>
 
                 {/* Content */}
-                <h3 className="text-2xl font-semibold text-foreground mb-1">
+                <h3 className="text-xl font-semibold text-foreground mb-1">
                   {service.title}
                 </h3>
-                <p className="text-primary text-sm font-medium mb-4">
+                <p className="text-primary text-xs font-medium mb-3">
                   {service.subtitle}
                 </p>
-                <p className="text-muted-foreground mb-6 leading-relaxed">
+                <p className="text-muted-foreground text-sm mb-5 leading-relaxed">
                   {service.description}
                 </p>
 
                 {/* Features */}
                 <ul className="space-y-2">
                   {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary/50" />
+                    <li key={featureIndex} className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <div className="w-1 h-1 rounded-full bg-primary/60" />
                       {feature}
                     </li>
                   ))}
                 </ul>
-
-                {/* Hover Arrow */}
-                <div className="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <ArrowUpRight className="w-5 h-5 text-primary" />
-                </div>
               </div>
             ))}
           </div>
