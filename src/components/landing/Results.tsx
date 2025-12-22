@@ -1,8 +1,11 @@
+import { useState, useEffect } from "react";
 import result1 from "@/assets/result-1.jpeg";
 import result2 from "@/assets/result-2.jpeg";
 import result3 from "@/assets/result-3.jpeg";
 
 const Results = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   const results = [
     {
       image: result1,
@@ -21,12 +24,20 @@ const Results = () => {
     }
   ];
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % results.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [results.length]);
+
   return (
     <section id="results" className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <p className="text-primary font-medium text-sm tracking-wide uppercase mb-4">
               Proven Results
             </p>
@@ -38,33 +49,50 @@ const Results = () => {
             </p>
           </div>
 
-          {/* Results Grid */}
-          <div className="grid md:grid-cols-3 gap-6">
-            {results.map((result, index) => (
-              <div
-                key={index}
-                className="group relative rounded-2xl overflow-hidden bg-card border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all duration-300"
-              >
-                {/* Image */}
-                <div className="aspect-[4/5] overflow-hidden">
+          {/* Single Cycling Frame */}
+          <div className="relative rounded-2xl overflow-hidden bg-card border border-border/50 shadow-lg max-w-md mx-auto">
+            {/* Image Container */}
+            <div className="aspect-[3/4] relative overflow-hidden">
+              {results.map((result, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-opacity duration-700 ${
+                    index === currentIndex ? "opacity-100" : "opacity-0"
+                  }`}
+                >
                   <img
                     src={result.image}
                     alt={result.title}
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover object-center"
                   />
+                  {/* Content Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex flex-col justify-end p-6">
+                    <h3 className="text-xl font-semibold text-white mb-1">
+                      {result.title}
+                    </h3>
+                    <p className="text-white/80 text-sm">
+                      {result.description}
+                    </p>
+                  </div>
                 </div>
+              ))}
+            </div>
 
-                {/* Content Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent flex flex-col justify-end p-6">
-                  <h3 className="text-xl font-semibold text-white mb-1">
-                    {result.title}
-                  </h3>
-                  <p className="text-white/80 text-sm">
-                    {result.description}
-                  </p>
-                </div>
-              </div>
-            ))}
+            {/* Dots Indicator */}
+            <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex gap-2">
+              {results.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === currentIndex
+                      ? "bg-white w-6"
+                      : "bg-white/50 hover:bg-white/70"
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
