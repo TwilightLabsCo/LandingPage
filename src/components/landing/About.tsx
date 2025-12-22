@@ -48,14 +48,14 @@ const About = () => {
               {values.map((value, index) => (
                 <div 
                   key={index}
-                  className="group p-5 rounded-xl bg-secondary/50 border border-border/50 hover:border-primary/20 hover:bg-secondary transition-all duration-300"
+                  className="group p-5 rounded-xl bg-secondary/50 border border-border/50 hover:border-primary/30 hover:bg-secondary hover-lift cursor-default"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                      <value.icon className="w-5 h-5 text-primary" />
+                    <div className="w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                      <value.icon className="w-5 h-5 text-primary icon-pulse" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground text-base mb-1">
+                      <h3 className="font-semibold text-foreground text-base mb-1 group-hover:text-primary transition-colors duration-300">
                         {value.title}
                       </h3>
                       <p className="text-muted-foreground text-sm">

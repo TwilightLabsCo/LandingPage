@@ -122,6 +122,36 @@
     animation: fadeUp 0.6s ease-out 0.3s forwards;
     opacity: 0;
   }
+
+  /* Hover lift effect */
+  .hover-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+  .hover-lift:hover {
+    @apply -translate-y-1;
+    box-shadow: 0 8px 30px -8px hsl(210 100% 45% / 0.15);
+  }
+
+  /* Icon pulse on hover */
+  .icon-pulse {
+    @apply transition-transform duration-300;
+  }
+  .group:hover .icon-pulse {
+    animation: iconPulse 0.4s ease-out;
+  }
+
+  /* Subtle glow effect */
+  .hover-glow {
+    @apply transition-all duration-300;
+  }
+  .hover-glow:hover {
+    box-shadow: 0 0 20px hsl(210 100% 45% / 0.1);
+  }
+
+  /* Input focus glow */
+  .input-glow:focus {
+    box-shadow: 0 0 0 3px hsl(210 100% 45% / 0.1);
+  }
 }
 
 @keyframes fadeUp {
@@ -133,4 +163,10 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes iconPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
 }

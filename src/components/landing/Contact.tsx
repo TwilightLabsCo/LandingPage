@@ -79,29 +79,29 @@ const Contact = () => {
               </p>
 
               <div className="space-y-5">
-                <div className="flex items-center gap-4">
-                  <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-5 h-5 text-primary" />
+                <div className="group flex items-center gap-4 cursor-default">
+                  <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 group-hover:scale-110 transition-all duration-300">
+                    <Mail className="w-5 h-5 text-primary icon-pulse" />
                   </div>
                   <div>
                     <p className="text-xs text-muted-foreground uppercase tracking-wide">Email</p>
-                    <p className="text-foreground font-medium text-sm">Business@TwilightLabs.Top</p>
+                    <p className="text-foreground font-medium text-sm group-hover:text-primary transition-colors duration-300">Business@TwilightLabs.Top</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-5 h-5 text-primary" />
+                <div className="group flex items-center gap-4 cursor-default">
+                  <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 group-hover:scale-110 transition-all duration-300">
+                    <MapPin className="w-5 h-5 text-primary icon-pulse" />
                   </div>
                   <div>
                     <p className="text-xs text-muted-foreground uppercase tracking-wide">Location</p>
-                    <p className="text-foreground font-medium text-sm">Atlanta, GA</p>
+                    <p className="text-foreground font-medium text-sm group-hover:text-primary transition-colors duration-300">Atlanta, GA</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Right - Form */}
-            <div className="bg-secondary/30 rounded-xl p-6 sm:p-8 border border-border/50">
+            <div className="bg-secondary/30 rounded-xl p-6 sm:p-8 border border-border/50 hover:border-primary/20 hover:shadow-lg transition-all duration-300">
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
@@ -114,7 +114,7 @@ const Contact = () => {
                     placeholder="Your name"
                     value={formData.name}
                     onChange={handleChange}
-                    className={`bg-background border-border/50 focus:border-primary rounded-lg h-11 ${errors.name ? 'border-destructive' : ''}`}
+                    className={`bg-background border-border/50 focus:border-primary rounded-lg h-11 input-glow transition-all duration-300 ${errors.name ? 'border-destructive' : ''}`}
                   />
                   {errors.name && <p className="text-destructive text-xs mt-1">{errors.name}</p>}
                 </div>
@@ -130,7 +130,7 @@ const Contact = () => {
                     placeholder="your@email.com"
                     value={formData.email}
                     onChange={handleChange}
-                    className={`bg-background border-border/50 focus:border-primary rounded-lg h-11 ${errors.email ? 'border-destructive' : ''}`}
+                    className={`bg-background border-border/50 focus:border-primary rounded-lg h-11 input-glow transition-all duration-300 ${errors.email ? 'border-destructive' : ''}`}
                   />
                   {errors.email && <p className="text-destructive text-xs mt-1">{errors.email}</p>}
                 </div>
@@ -146,7 +146,7 @@ const Contact = () => {
                     rows={4}
                     value={formData.message}
                     onChange={handleChange}
-                    className={`bg-background border-border/50 focus:border-primary rounded-lg resize-none ${errors.message ? 'border-destructive' : ''}`}
+                    className={`bg-background border-border/50 focus:border-primary rounded-lg resize-none input-glow transition-all duration-300 ${errors.message ? 'border-destructive' : ''}`}
                   />
                   {errors.message && <p className="text-destructive text-xs mt-1">{errors.message}</p>}
                 </div>

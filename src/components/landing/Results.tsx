@@ -50,27 +50,27 @@ const Results = () => {
           </div>
 
           {/* Single Cycling Frame */}
-          <div className="relative rounded-2xl overflow-hidden bg-card border border-border/50 shadow-lg max-w-sm mx-auto">
+          <div className="group relative rounded-2xl overflow-hidden bg-card border border-border/50 shadow-lg max-w-sm mx-auto hover:shadow-xl hover:border-primary/20 transition-all duration-500">
             {/* Image Container */}
             <div className="aspect-[3/4] relative overflow-hidden bg-muted">
               {results.map((result, index) => (
                 <div
                   key={index}
-                  className={`absolute inset-0 transition-opacity duration-700 ${
-                    index === currentIndex ? "opacity-100" : "opacity-0"
+                  className={`absolute inset-0 transition-all duration-700 ${
+                    index === currentIndex ? "opacity-100 scale-100" : "opacity-0 scale-105"
                   }`}
                 >
                   <img
                     src={result.image}
                     alt={result.title}
-                    className="w-full h-full object-cover object-center"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                   />
                   {/* Content Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-5">
-                    <h3 className="text-lg font-semibold text-white mb-1">
+                    <h3 className="text-lg font-semibold text-white mb-1 transform transition-transform duration-500 group-hover:translate-x-1">
                       {result.title}
                     </h3>
-                    <p className="text-white/80 text-sm">
+                    <p className="text-white/80 text-sm transform transition-transform duration-500 delay-75 group-hover:translate-x-1">
                       {result.description}
                     </p>
                   </div>
@@ -84,7 +84,7 @@ const Results = () => {
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
+                  className={`h-2 rounded-full transition-all duration-300 hover:scale-125 ${
                     index === currentIndex
                       ? "bg-white w-5"
                       : "bg-white/50 w-2 hover:bg-white/70"

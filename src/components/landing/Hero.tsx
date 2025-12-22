@@ -29,7 +29,7 @@ const Hero = () => {
             <Button 
               onClick={scrollToContact}
               size="lg" 
-              className="rounded-full px-8 gap-2 group h-12"
+              className="rounded-full px-8 gap-2 group h-12 hover:scale-105 hover:shadow-lg active:scale-100 transition-all duration-300"
             >
               Start a Conversation
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -38,7 +38,7 @@ const Hero = () => {
               onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
               variant="outline" 
               size="lg" 
-              className="rounded-full px-8 h-12"
+              className="rounded-full px-8 h-12 hover:scale-105 hover:shadow-md active:scale-100 transition-all duration-300"
             >
               Explore Services
             </Button>
