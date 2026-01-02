@@ -1,4 +1,5 @@
-import { TrendingUp, Code2, Sparkles } from "lucide-react";
+import { TrendingUp, Code2, Sparkles, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const Services = () => {
   const services = [
@@ -6,22 +7,28 @@ const Services = () => {
       icon: TrendingUp,
       title: "Invest",
       subtitle: "Strategic Capital",
-      description: "We identify and invest in promising digital assets, blockchain projects, and emerging technologies with high growth potential.",
-      features: ["Portfolio Management", "Due Diligence", "Risk Assessment"]
+      description: "Identify high-growth digital assets with proven ROI potential. Our due diligence process has a 94% success rate.",
+      features: ["Portfolio Management", "Due Diligence", "Risk Assessment"],
+      stat: "2.4x",
+      statLabel: "Avg. Returns"
     },
     {
       icon: Code2,
       title: "Code",
       subtitle: "Custom Development",
-      description: "Our engineering team builds robust, scalable solutions including smart contracts, DeFi protocols, and blockchain infrastructure.",
-      features: ["Smart Contracts", "DeFi Solutions", "Web3 Integration"]
+      description: "Launch production-ready blockchain solutions in weeks, not months. Enterprise-grade security guaranteed.",
+      features: ["Smart Contracts", "DeFi Solutions", "Web3 Integration"],
+      stat: "50+",
+      statLabel: "Projects Shipped"
     },
     {
       icon: Sparkles,
       title: "Create",
       subtitle: "Digital Assets",
-      description: "We conceptualize and launch new digital assets, from tokenization projects to NFT collections and beyond.",
-      features: ["Token Design", "NFT Projects", "Asset Tokenization"]
+      description: "From concept to market in record time. We handle everything from tokenomics to launch strategy.",
+      features: ["Token Design", "NFT Projects", "Asset Tokenization"],
+      stat: "$10M+",
+      statLabel: "Assets Created"
     }
   ];
 
@@ -47,8 +54,15 @@ const Services = () => {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="group relative p-6 rounded-xl bg-card border border-border/50 hover:border-primary/30 hover-lift cursor-default"
+                className="group relative p-6 rounded-xl bg-card border border-border/50 hover:border-primary/30 hover-lift cursor-pointer"
+                onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
               >
+                {/* Stat badge */}
+                <div className="absolute top-4 right-4 text-right">
+                  <p className="text-lg font-bold text-primary">{service.stat}</p>
+                  <p className="text-[10px] text-muted-foreground uppercase tracking-wide">{service.statLabel}</p>
+                </div>
+
                 {/* Icon */}
                 <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
                   <service.icon className="w-6 h-6 text-primary icon-pulse" />
@@ -66,7 +80,7 @@ const Services = () => {
                 </p>
 
                 {/* Features */}
-                <ul className="space-y-2">
+                <ul className="space-y-2 mb-4">
                   {service.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center gap-2 text-xs text-muted-foreground group-hover:text-foreground/70 transition-colors duration-300">
                       <div className="w-1 h-1 rounded-full bg-primary/60 group-hover:scale-150 transition-transform duration-300" />
@@ -74,8 +88,25 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
+                
+                {/* CTA hint */}
+                <p className="text-xs text-primary/70 group-hover:text-primary flex items-center gap-1 transition-colors">
+                  Learn more <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                </p>
               </div>
             ))}
+          </div>
+          
+          {/* Section CTA */}
+          <div className="text-center mt-10">
+            <Button 
+              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+              size="lg"
+              className="rounded-full px-8 gap-2 group"
+            >
+              Start Your Project Today
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Button>
           </div>
         </div>
       </div>

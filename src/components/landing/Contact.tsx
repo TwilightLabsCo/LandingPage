@@ -68,15 +68,30 @@ const Contact = () => {
             {/* Left - Info */}
             <div>
               <p className="text-primary font-medium text-sm tracking-widest uppercase mb-4">
-                Get in Touch
+                Free Consultation
               </p>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-foreground leading-tight mb-6">
-                Let's build something extraordinary
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-foreground leading-tight mb-4">
+                Get your personalized strategy in 24 hours
               </h2>
-              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-8">
-                Whether you're looking to invest, need custom development, or want to explore 
-                creating digital assets, we'd love to hear from you.
+              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-6">
+                Tell us about your vision and receive a custom roadmap—completely free, no strings attached.
               </p>
+              
+              {/* Benefits list */}
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-center gap-3 text-sm text-foreground">
+                  <svg className="w-5 h-5 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
+                  Personalized project assessment
+                </li>
+                <li className="flex items-center gap-3 text-sm text-foreground">
+                  <svg className="w-5 h-5 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
+                  Clear timeline & budget estimate
+                </li>
+                <li className="flex items-center gap-3 text-sm text-foreground">
+                  <svg className="w-5 h-5 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
+                  No commitment required
+                </li>
+              </ul>
 
               <div className="space-y-5">
                 <div className="group flex items-center gap-4 cursor-default">
@@ -153,18 +168,21 @@ const Contact = () => {
 
                 <Button 
                   type="submit" 
-                  className="w-full rounded-lg h-11 gap-2"
+                  className="w-full rounded-lg h-12 gap-2 text-base font-medium"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
                     "Sending..."
                   ) : (
                     <>
-                      Send Message
+                      Get My Free Strategy
                       <Send className="w-4 h-4" />
                     </>
                   )}
                 </Button>
+                <p className="text-center text-xs text-muted-foreground mt-3">
+                  We typically respond within 24 hours
+                </p>
               </form>
             </div>
           </div>
