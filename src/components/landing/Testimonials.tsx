@@ -36,9 +36,10 @@ const Testimonials = () => {
     <section className="py-16 md:py-24 bg-secondary/30">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-primary font-medium text-sm tracking-widest uppercase mb-4">
+          <p className="text-primary font-medium text-sm tracking-widest uppercase mb-2">
             Trusted by Partners
           </p>
+          <p className="text-xs text-muted-foreground mb-6">Quality work or 100% of your money back</p>
           
           <div className="relative min-h-[200px] flex items-center justify-center">
             {testimonials.map((testimonial, index) => (

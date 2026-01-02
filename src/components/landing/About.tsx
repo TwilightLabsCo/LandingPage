@@ -1,9 +1,9 @@
 const About = () => {
   const stats = [
-    { value: "50+", label: "Partners" },
+    { value: "50+", label: "Partners Served" },
     { value: "2.4x", label: "Avg. Returns" },
-    { value: "$10M+", label: "Assets Managed" },
-    { value: "94%", label: "Success Rate" }
+    { value: "100%", label: "Money-Back Guarantee" },
+    { value: "<24h", label: "Response Time" }
   ];
 
   return (
