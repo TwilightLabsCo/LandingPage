@@ -29,12 +29,6 @@ const Header = () => {
             Services
           </button>
           <button 
-            onClick={() => scrollToSection("results")}
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            Results
-          </button>
-          <button 
             onClick={() => scrollToSection("contact")}
             className="text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
