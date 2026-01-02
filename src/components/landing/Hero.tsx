@@ -12,13 +12,9 @@ const Hero = () => {
       <div className="container mx-auto px-4 sm:px-6 py-16 md:py-20 text-center">
         <div className="max-w-3xl mx-auto">
           {/* Social proof badge */}
-          <div className="animate-fade-up inline-flex items-center gap-3 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 mb-8">
-            <div className="flex -space-x-2">
-              <div className="w-6 h-6 rounded-full bg-primary/20 border-2 border-background" />
-              <div className="w-6 h-6 rounded-full bg-primary/30 border-2 border-background" />
-              <div className="w-6 h-6 rounded-full bg-primary/40 border-2 border-background" />
-            </div>
-            <span className="text-foreground font-medium text-xs sm:text-sm">50+ partners trust us</span>
+          <div className="animate-fade-up inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 mb-8">
+            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+            <span className="text-foreground font-medium text-xs sm:text-sm">Trusted by 50+ partners</span>
           </div>
           
           <h1 className="animate-fade-up-delay-1 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground leading-tight tracking-tight mb-6">
