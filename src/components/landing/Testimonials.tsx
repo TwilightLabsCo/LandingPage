@@ -33,13 +33,15 @@ const Testimonials = () => {
   }, [testimonials.length]);
 
   return (
-    <section className="py-16 md:py-24 bg-secondary/30">
+    <section className="py-20 md:py-28 bg-secondary/30">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-primary font-medium text-sm tracking-widest uppercase mb-2">
-            Trusted by Partners
+          <p className="text-primary font-medium text-sm tracking-widest uppercase mb-3">
+            What Partners Say
           </p>
-          <p className="text-xs text-muted-foreground mb-6">Quality work or 100% of your money back</p>
+          <h2 className="text-2xl sm:text-3xl font-semibold text-foreground mb-10">
+            Results that speak for themselves
+          </h2>
           
           <div className="relative min-h-[200px] flex items-center justify-center">
             {testimonials.map((testimonial, index) => (

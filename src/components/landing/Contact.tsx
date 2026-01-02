@@ -61,7 +61,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-28 bg-background">
+    <section id="contact" className="py-20 md:py-28 bg-gradient-to-b from-background to-secondary/30">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-10 md:gap-16">
@@ -120,7 +120,7 @@ const Contact = () => {
             </div>
 
             {/* Right - Form */}
-            <div className="bg-secondary/30 rounded-xl p-6 sm:p-8 border border-border/50 hover:border-primary/20 hover:shadow-lg transition-all duration-300">
+            <div className="bg-card rounded-2xl p-6 sm:p-8 border border-border/50 shadow-lg">
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">

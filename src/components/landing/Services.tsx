@@ -36,27 +36,27 @@ const Services = () => {
             </h2>
           </div>
 
-          <div className="grid sm:grid-cols-3 gap-5 mb-10">
+          <div className="grid sm:grid-cols-3 gap-6 mb-12">
             {services.map((service, index) => (
               <div
                 key={index}
-                className="group p-6 rounded-xl bg-card border border-border/50 hover:border-primary/30 hover-lift"
+                className="group p-6 rounded-2xl bg-card border border-border/50 hover:border-primary/30 hover:shadow-xl transition-all duration-300"
               >
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
                   <service.icon className="w-6 h-6 text-primary" />
                 </div>
 
-                <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                <p className="text-muted-foreground text-sm mb-5 leading-relaxed">
                   {service.description}
                 </p>
 
-                <ul className="space-y-2">
+                <ul className="space-y-2.5">
                   {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center gap-2 text-xs text-muted-foreground">
-                      <div className="w-1 h-1 rounded-full bg-primary/60" />
+                    <li key={featureIndex} className="flex items-center gap-2.5 text-sm text-muted-foreground">
+                      <svg className="w-4 h-4 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
                       {feature}
                     </li>
                   ))}
