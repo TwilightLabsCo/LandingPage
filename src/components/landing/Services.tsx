@@ -1,7 +1,10 @@
 import { TrendingUp, Code2, Sparkles, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Services = () => {
+  const { ref, isVisible } = useScrollAnimation();
+  
   const services = [
     {
       icon: TrendingUp,
@@ -24,10 +27,14 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-16 md:py-24 bg-secondary/30">
+    <section 
+      id="services" 
+      ref={ref as React.RefObject<HTMLElement>}
+      className="py-16 md:py-24 bg-secondary/30"
+    >
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-10 md:mb-14">
+          <div className={`text-center mb-10 md:mb-14 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <p className="text-primary font-medium text-sm tracking-widest uppercase mb-4">
               How We Help
             </p>
@@ -40,7 +47,8 @@ const Services = () => {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="group p-6 rounded-2xl bg-card border border-border/50 hover:border-primary/30 hover:shadow-xl transition-all duration-300"
+                className={`group p-6 rounded-2xl bg-card border border-border/50 hover:border-primary/30 hover:shadow-xl transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                style={{ transitionDelay: `${200 + index * 150}ms` }}
               >
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
                   <service.icon className="w-6 h-6 text-primary" />
@@ -65,7 +73,7 @@ const Services = () => {
             ))}
           </div>
           
-          <div className="text-center">
+          <div className={`text-center transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '650ms' }}>
             <Button 
               onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
               size="lg"

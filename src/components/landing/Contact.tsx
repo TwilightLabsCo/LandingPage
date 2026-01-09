@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Send, Mail, MapPin } from "lucide-react";
 import { z } from "zod";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -21,6 +22,7 @@ const Contact = () => {
     message: ""
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const { ref, isVisible } = useScrollAnimation();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -61,12 +63,16 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-28 bg-gradient-to-b from-background to-secondary/30">
+    <section 
+      id="contact" 
+      ref={ref as React.RefObject<HTMLElement>}
+      className="py-20 md:py-28 bg-gradient-to-b from-background to-secondary/30"
+    >
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-10 md:gap-16">
             {/* Left - Info */}
-            <div>
+            <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
               <p className="text-primary font-medium text-sm tracking-widest uppercase mb-4">
                 Free Consultation
               </p>
@@ -79,26 +85,36 @@ const Contact = () => {
               
               {/* Benefits list */}
               <ul className="space-y-3 mb-8">
-                <li className="flex items-center gap-3 text-sm text-foreground">
-                  <svg className="w-5 h-5 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
-                  100% money-back guarantee
-                </li>
-                <li className="flex items-center gap-3 text-sm text-foreground">
-                  <svg className="w-5 h-5 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
-                  Free strategy session—no strings attached
-                </li>
-                <li className="flex items-center gap-3 text-sm text-foreground">
-                  <svg className="w-5 h-5 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
-                  Clear timeline & budget estimate
-                </li>
-                <li className="flex items-center gap-3 text-sm text-foreground">
-                  <svg className="w-5 h-5 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" /></svg>
-                  Response within 24 hours guaranteed
-                </li>
+                {[
+                  { icon: "shield", text: "100% money-back guarantee" },
+                  { icon: "check", text: "Free strategy session—no strings attached" },
+                  { icon: "check", text: "Clear timeline & budget estimate" },
+                  { icon: "clock", text: "Response within 24 hours guaranteed" }
+                ].map((item, index) => (
+                  <li 
+                    key={index}
+                    className={`flex items-center gap-3 text-sm text-foreground transition-all duration-500 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}
+                    style={{ transitionDelay: `${300 + index * 100}ms` }}
+                  >
+                    {item.icon === "shield" && (
+                      <svg className="w-5 h-5 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
+                    )}
+                    {item.icon === "check" && (
+                      <svg className="w-5 h-5 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
+                    )}
+                    {item.icon === "clock" && (
+                      <svg className="w-5 h-5 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" /></svg>
+                    )}
+                    {item.text}
+                  </li>
+                ))}
               </ul>
 
               <div className="space-y-5">
-                <div className="group flex items-center gap-4 cursor-default">
+                <div 
+                  className={`group flex items-center gap-4 cursor-default transition-all duration-500 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}
+                  style={{ transitionDelay: '700ms' }}
+                >
                   <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 group-hover:scale-110 transition-all duration-300">
                     <Mail className="w-5 h-5 text-primary icon-pulse" />
                   </div>
@@ -107,7 +123,10 @@ const Contact = () => {
                     <p className="text-foreground font-medium text-sm group-hover:text-primary transition-colors duration-300">Business@TwilightLabs.Top</p>
                   </div>
                 </div>
-                <div className="group flex items-center gap-4 cursor-default">
+                <div 
+                  className={`group flex items-center gap-4 cursor-default transition-all duration-500 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}
+                  style={{ transitionDelay: '800ms' }}
+                >
                   <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 group-hover:scale-110 transition-all duration-300">
                     <MapPin className="w-5 h-5 text-primary icon-pulse" />
                   </div>
@@ -120,7 +139,7 @@ const Contact = () => {
             </div>
 
             {/* Right - Form */}
-            <div className="bg-card rounded-2xl p-6 sm:p-8 border border-border/50 shadow-lg">
+            <div className={`bg-card rounded-2xl p-6 sm:p-8 border border-border/50 shadow-lg transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`} style={{ transitionDelay: '200ms' }}>
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">

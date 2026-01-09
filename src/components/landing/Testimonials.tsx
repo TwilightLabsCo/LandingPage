@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { Quote } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { ref, isVisible } = useScrollAnimation();
 
   const testimonials = [
     {
@@ -33,9 +35,12 @@ const Testimonials = () => {
   }, [testimonials.length]);
 
   return (
-    <section className="py-20 md:py-28 bg-secondary/30">
+    <section 
+      ref={ref as React.RefObject<HTMLElement>}
+      className="py-20 md:py-28 bg-secondary/30"
+    >
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className={`max-w-3xl mx-auto text-center transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <p className="text-primary font-medium text-sm tracking-widest uppercase mb-3">
             What Partners Say
           </p>
@@ -43,7 +48,7 @@ const Testimonials = () => {
             Results that speak for themselves
           </h2>
           
-          <div className="relative min-h-[200px] flex items-center justify-center">
+          <div className={`relative min-h-[200px] flex items-center justify-center transition-all duration-700 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`} style={{ transitionDelay: '200ms' }}>
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
@@ -65,7 +70,7 @@ const Testimonials = () => {
           </div>
 
           {/* Dots */}
-          <div className="flex justify-center gap-2 mt-8">
+          <div className={`flex justify-center gap-2 mt-8 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '400ms' }}>
             {testimonials.map((_, index) => (
               <button
                 key={index}

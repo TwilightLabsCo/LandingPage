@@ -1,4 +1,8 @@
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
 const About = () => {
+  const { ref, isVisible } = useScrollAnimation();
+  
   const stats = [
     { value: "50+", label: "Partners Served" },
     { value: "2.4x", label: "Avg. Returns" },
@@ -7,9 +11,13 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-16 md:py-24 bg-background">
+    <section 
+      id="about" 
+      ref={ref as React.RefObject<HTMLElement>}
+      className="py-16 md:py-24 bg-background"
+    >
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className={`max-w-4xl mx-auto text-center transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <p className="text-primary font-medium text-sm tracking-widest uppercase mb-4">
             Why Choose Us
           </p>
@@ -25,7 +33,8 @@ const About = () => {
             {stats.map((stat, index) => (
               <div 
                 key={index}
-                className="p-6 rounded-xl bg-secondary/50 border border-border/50"
+                className={`p-6 rounded-xl bg-secondary/50 border border-border/50 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                style={{ transitionDelay: `${150 + index * 100}ms` }}
               >
                 <p className="text-2xl sm:text-3xl font-bold text-primary mb-1">{stat.value}</p>
                 <p className="text-sm text-muted-foreground">{stat.label}</p>
