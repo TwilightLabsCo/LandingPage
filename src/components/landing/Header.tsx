@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
 import { ArrowRight } from "lucide-react";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const Header = () => {
   const scrollToSection = (id: string) => {
@@ -28,14 +29,17 @@ const Header = () => {
           ))}
         </nav>
 
-        <Button 
-          onClick={() => scrollToSection("contact")}
-          size="sm"
-          className="rounded-full px-5 h-10 gap-2 group font-semibold shadow-sm hover:shadow-md transition-all"
-        >
-          Get in Touch
-          <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-        </Button>
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          <Button 
+            onClick={() => scrollToSection("contact")}
+            size="sm"
+            className="rounded-full px-5 h-10 gap-2 group font-semibold shadow-sm hover:shadow-md transition-all"
+          >
+            Get in Touch
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+          </Button>
+        </div>
       </div>
     </header>
   );
