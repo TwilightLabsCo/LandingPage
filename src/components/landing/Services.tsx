@@ -10,22 +10,19 @@ const Services = () => {
       icon: TrendingUp,
       title: "Invest",
       description: "Strategic capital deployment in high-growth digital assets with proven ROI potential.",
-      features: ["Portfolio Management", "Due Diligence", "Risk Assessment"],
-      gradient: "from-blue-500/10 to-cyan-500/10"
+      features: ["Portfolio Management", "Due Diligence", "Risk Assessment"]
     },
     {
       icon: Code2,
       title: "Build",
       description: "Production-ready blockchain solutions shipped in weeks, not months.",
-      features: ["Smart Contracts", "DeFi Solutions", "Web3 Integration"],
-      gradient: "from-violet-500/10 to-purple-500/10"
+      features: ["Smart Contracts", "DeFi Solutions", "Web3 Integration"]
     },
     {
       icon: Sparkles,
       title: "Launch",
       description: "From concept to market—tokenomics, design, and launch strategy handled.",
-      features: ["Token Design", "NFT Projects", "Asset Tokenization"],
-      gradient: "from-amber-500/10 to-orange-500/10"
+      features: ["Token Design", "NFT Projects", "Asset Tokenization"]
     }
   ];
 
@@ -50,11 +47,11 @@ const Services = () => {
             {services.map((service, index) => (
               <div
                 key={index}
-                className={`group relative p-8 rounded-3xl bg-card border border-border/40 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 overflow-hidden ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                className={`group relative p-8 rounded-3xl bg-card border border-border/20 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 overflow-hidden ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
                 style={{ transitionDelay: `${200 + index * 150}ms` }}
               >
                 {/* Gradient background on hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 <div className="relative">
                   <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
