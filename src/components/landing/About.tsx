@@ -34,9 +34,13 @@ const About = () => {
             {stats.map((stat, index) => (
               <div 
                 key={index}
-                className={`group relative p-8 rounded-2xl bg-gradient-to-b from-secondary/60 to-secondary/30 border border-border/40 hover:border-primary/30 hover:shadow-lg transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                className={`group relative p-8 rounded-2xl bg-gradient-to-b from-secondary/60 to-secondary/30 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
                 style={{ transitionDelay: `${150 + index * 100}ms` }}
               >
+                {/* Gradient border overlay */}
+                <div className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-br from-primary/40 via-primary/20 to-primary/40 -z-10">
+                  <div className="w-full h-full rounded-2xl bg-gradient-to-b from-secondary/60 to-card" />
+                </div>
                 <div className="absolute top-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity">
                   <stat.icon className="w-8 h-8 text-primary" />
                 </div>
