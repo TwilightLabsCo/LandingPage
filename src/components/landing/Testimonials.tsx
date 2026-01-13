@@ -69,13 +69,19 @@ const Testimonials = () => {
                   "{testimonial.quote}"
                 </blockquote>
                 <div className="flex flex-col items-center gap-2">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-2">
-                    <span className="text-primary font-bold text-sm">{testimonial.initials}</span>
+                  <div className="relative w-12 h-12 rounded-full flex items-center justify-center mb-2">
+                    <div className="absolute inset-0 rounded-full p-[1px] bg-gradient-to-br from-primary/60 via-primary/30 to-primary/60">
+                      <div className="w-full h-full rounded-full bg-primary/10" />
+                    </div>
+                    <span className="relative text-primary font-bold text-sm">{testimonial.initials}</span>
                   </div>
                   <p className="font-bold text-foreground text-lg">{testimonial.name}</p>
                   <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                  <span className="inline-block mt-3 px-4 py-1.5 bg-primary/10 rounded-full text-primary font-bold text-sm">
-                    {testimonial.metric}
+                  <span className="relative inline-block mt-3 px-4 py-1.5 rounded-full text-primary font-bold text-sm">
+                    <span className="absolute inset-0 rounded-full p-[1px] bg-gradient-to-r from-primary/50 via-primary/30 to-primary/50">
+                      <span className="block w-full h-full rounded-full bg-primary/10" />
+                    </span>
+                    <span className="relative">{testimonial.metric}</span>
                   </span>
                 </div>
               </div>

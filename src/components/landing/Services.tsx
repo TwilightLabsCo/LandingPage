@@ -47,11 +47,15 @@ const Services = () => {
             {services.map((service, index) => (
               <div
                 key={index}
-                className={`group relative p-8 rounded-3xl bg-card border border-border/20 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 overflow-hidden ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                className={`group relative p-8 rounded-3xl bg-card hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 overflow-hidden ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
                 style={{ transitionDelay: `${200 + index * 150}ms` }}
               >
+                {/* Gradient border */}
+                <div className="absolute inset-0 rounded-3xl p-[1px] bg-gradient-to-br from-primary/40 via-primary/20 to-primary/40 -z-10">
+                  <div className="w-full h-full rounded-3xl bg-card" />
+                </div>
                 {/* Gradient background on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
                 
                 <div className="relative">
                   <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
