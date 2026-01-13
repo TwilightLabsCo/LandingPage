@@ -139,7 +139,11 @@ const Contact = () => {
             </div>
 
             {/* Right - Form */}
-            <div className={`bg-card rounded-2xl p-6 sm:p-8 border border-border/50 shadow-lg transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`} style={{ transitionDelay: '200ms' }}>
+            <div className={`relative bg-card rounded-2xl p-6 sm:p-8 shadow-lg transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`} style={{ transitionDelay: '200ms' }}>
+              {/* Gradient border */}
+              <div className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-br from-primary/40 via-primary/20 to-primary/40 -z-10">
+                <div className="w-full h-full rounded-2xl bg-card" />
+              </div>
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
