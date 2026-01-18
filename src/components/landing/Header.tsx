@@ -18,7 +18,7 @@ const Header = () => {
         </div>
         
         <nav className="hidden md:flex items-center gap-1">
-          {['About', 'Services', 'Contact'].map((item) => (
+          {['About', 'Services', 'Pricing', 'Contact'].map((item) => (
             <button 
               key={item}
               onClick={() => scrollToSection(item.toLowerCase())}
